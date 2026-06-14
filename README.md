@@ -4,7 +4,7 @@
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
 
-A comprehensive machine learning course project (PMIT_6121) comparing **Support Vector Machines (SVM)**, **K-Nearest Neighbors (KNN)**, and **Gaussian Naive Bayes (GNB)** classifiers to predict heart disease risk. This project implements a full end-to-end pipeline including exploratory data analysis (EDA), statistical visualization, categorical encoding, stratified data splitting, feature scaling, hyperparameter exploration, and model performance evaluation tailored for medical screening contexts.
+A comprehensive machine learning course project (PMIT_6121) comparing **Support Vector Machines (SVM)**, **K-Nearest Neighbors (KNN)**, and **Gaussian Naive Bayes (GNB)** classifiers to predict heart disease using the CDC BRFSS dataset.
 
 ---
 
@@ -24,7 +24,7 @@ A comprehensive machine learning course project (PMIT_6121) comparing **Support 
 
 ## 🔍 Project Overview
 
-Predicting heart disease is one of the most critical applications of machine learning in healthcare. Early detection allows for preventative lifestyle changes and clinical interventions, which can dramatically lower mortality rates. 
+Predicting heart disease is one of the most critical applications of machine learning in healthcare. Early detection allows for preventative lifestyle changes and clinical interventions, which can dramatically improve patient outcomes.
 
 This project benchmarks three distinct classification paradigms on the Kaggle *Personal Key Indicators of Heart Disease* dataset:
 *   **Distance-based Classifiers:** K-Nearest Neighbors (KNN)
@@ -64,9 +64,7 @@ The project utilizes the **Personal Key Indicators of Heart Disease** dataset fr
 
 ### 1. Target Class Distribution
 
-| Visualization | Analysis |
-| :---: | :--- |
-| ![Figure 1 - Target Class Distribution](fig1_class_distribution.png) | **Significant Class Imbalance:** 91.44% negative class vs 8.56% positive class. This imbalance critically impacts classifier evaluation—accuracy alone is a deceptive metric. Recall and F1-score become primary evaluation metrics. |
+**Significant Class Imbalance:** 91.44% negative class vs 8.56% positive class. This imbalance critically impacts classifier evaluation and requires careful metric selection.
 
 **Key Insight:** Standard classifiers will naturally bias toward predicting "No Disease" due to class imbalance. Mitigation strategies include class weighting, SMOTE, or threshold tuning.
 
@@ -74,9 +72,7 @@ The project utilizes the **Personal Key Indicators of Heart Disease** dataset fr
 
 ### 2. BMI Distribution Analysis
 
-| Visualization | Analysis |
-| :---: | :--- |
-| ![Figure 2 - BMI Distribution by Heart Disease Status](fig2_bmi_distribution.png) | **BMI as a Predictor:** Individuals with heart disease show a mean BMI of 29.6 vs 28.3 for those without. The 1.3-point difference is clinically relevant. Both distributions are right-skewed, with extreme outliers reaching BMI ≥ 90. |
+**BMI as a Predictor:** Individuals with heart disease show a mean BMI of 29.6 vs 28.3 for those without. The 1.3-unit difference is clinically meaningful.
 
 **Clinical Relevance:** BMI ≥ 25 (overweight) is a known cardiovascular risk factor.
 
@@ -84,9 +80,7 @@ The project utilizes the **Personal Key Indicators of Heart Disease** dataset fr
 
 ### 3. Heart Disease Prevalence by Age Category
 
-| Visualization | Analysis |
-| :---: | :--- |
-| ![Figure 3 - Heart Disease Prevalence by Age Category](fig3_age_prevalence.png) | **Strong Age Correlation:** Prevalence increases dramatically with age—from ~2% in ages 18–24 to ~27% in ages 80+. Age is the single strongest predictor in the dataset. |
+**Strong Age Correlation:** Prevalence increases dramatically with age—from ~2% in ages 18–24 to ~27% in ages 80+. This exponential relationship reflects biological aging and accumulated risk factors.
 
 **Observation:** Age categories form a natural segmentation for stratified analysis and model interpretation.
 
@@ -94,9 +88,7 @@ The project utilizes the **Personal Key Indicators of Heart Disease** dataset fr
 
 ### 4. Risk Factor Analysis
 
-| Visualization | Analysis |
-| :---: | :--- |
-| ![Figure 4 - Risk Factor Prevalence by Class](fig4_risk_factors.png) | **Comparative Risk Factors:** Smoking (36.3% vs 20.8%), Diabetes (49.8% vs 17.5%), and Physical Inactivity (58.2% vs 26.5%) all show pronounced differences between disease and non-disease groups. Diabetes and inactivity demonstrate >31 percentage-point differences. |
+**Comparative Risk Factors:** Smoking (36.3% vs 20.8%), Diabetes (49.8% vs 17.5%), and Physical Inactivity (58.2% vs 26.5%) all show significantly higher prevalence in patients with heart disease compared to healthy individuals.
 
 **Clinical Implication:** These categorical features are highly discriminative and should receive high feature importance weights.
 
@@ -123,9 +115,7 @@ To prepare the data for distance-based (KNN) and boundary-based (SVM) classifier
 
 ### 4.1 KNN Hyperparameter Analysis
 
-| Visualization | Analysis |
-| :---: | :--- |
-| ![Figure 5 - KNN Performance Across K Values](fig5_knn_k_comparison.png) | **K-value Trade-off:** K=5 provides optimal balance between accuracy (89.87%) and recall (58.96%). As K increases, accuracy improves but recall decreases due to majority class domination in larger neighborhoods. |
+**K-value Trade-off:** K=5 provides optimal balance between accuracy (89.87%) and recall (58.96%). As K increases, accuracy generally improves but recall decreases, indicating reduced sensitivity to minority class samples.
 
 **Selected Configuration:** K=5 (best F1-Score: 0.6195)
 
@@ -144,9 +134,7 @@ To prepare the data for distance-based (KNN) and boundary-based (SVM) classifier
 
 ### 4.3 Cross-Model Performance Comparison
 
-| Visualization | Analysis |
-| :---: | :--- |
-| ![Figure 6 - Comparative Model Performance](fig6_model_comparison.png) | **Multi-Metric Comparison:** SVM (Linear) dominates in accuracy and F1-score. Naive Bayes excels at recall (73.24%), catching more disease cases despite lower precision. SVM (RBF) provides a middle ground with balanced performance. |
+**Multi-Metric Comparison:** SVM (Linear) dominates in accuracy and F1-score. Naive Bayes excels at recall (73.24%), catching nearly 3 out of 4 disease cases at the expense of lower precision.
 
 **Ranking by Metric:**
 - **Accuracy:** SVM (Linear) 90.58% > SVM (RBF) 90.15% > KNN 89.87%
@@ -156,10 +144,6 @@ To prepare the data for distance-based (KNN) and boundary-based (SVM) classifier
 ---
 
 ## 5. Confusion Matrices & Detailed Analysis
-
-| Visualization |
-| :---: |
-| ![Figure 7 - Confusion Matrices for All Classifiers](fig7_confusion_matrices.png) |
 
 ### Interpretation Guide
 
@@ -210,14 +194,4 @@ ML-Assignment/
 ├── ML Assignment_Rakib.ipynb          # Core Jupyter Notebook with full pipeline
 ├── README.md                          # Project documentation (this file)
 ├── heart_2020_cleaned.csv             # CDC BRFSS Dataset (319,795 records)
-│
-├── [Generated Visualizations]
-│   ├── fig1_class_distribution.png    # Pie & bar charts of target distribution
-│   ├── fig2_bmi_distribution.png      # Overlaid histograms by disease status
-│   ├── fig3_age_prevalence.png        # Bar chart of prevalence by age group
-│   ├── fig4_risk_factors.png          # Grouped bar chart of risk factors
-│   ├── fig5_knn_k_comparison.png      # Line/bar plot of K-value performance
-│   ├── fig6_model_comparison.png      # 4-subplot metric comparison
-│   └── fig7_confusion_matrices.png    # 4-heatmap confusion matrix grid
-│
 └── requirements.txt                   # Python dependencies
