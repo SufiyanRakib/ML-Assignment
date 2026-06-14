@@ -1,11 +1,13 @@
 # Benchmarking ML Classifiers for Heart Disease Prediction
 
-**Course:** PMIT_6121: Machine Learning  
-**Dataset:** CDC Personal Key Indicators of Heart Disease (Kaggle)  
-**Author:** Sufiyan Rakib  
-**Date:** June 14, 2026
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
----
+A comprehensive machine learning course project comparing **Support Vector Machines (SVM)**, **K-Nearest Neighbors (KNN)**, and **Gaussian Naive Bayes (GNB)** classifiers to predict heart disease risk. This project implements a full end-to-end pipeline including exploratory data analysis (EDA), statistical visualization, categorical encoding, stratified data splitting, feature scaling, hyperparameter exploration, and model performance evaluation tailored for medical screening contexts.
+
+
 
 ## Executive Summary
 
@@ -264,4 +266,4 @@ The significant class imbalance and moderate recall scores suggest that **additi
 
 **Dataset Source:** [Kaggle - CDC Personal Key Indicators of Heart Disease](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease)
 
-**Contact:** Sufiyan Rakib
+**Contact:** Md. Abu Sufiyan Rakib
