@@ -2,7 +2,7 @@
 
 **Course:** PMIT_6121: Machine Learning  
 **Dataset:** CDC Personal Key Indicators of Heart Disease (Kaggle)  
-**Author:** Md. Abu Sufiyan Rakib  
+**Author:** Sufiyan Rakib  
 **Date:** June 14, 2026
 
 ---
@@ -22,6 +22,8 @@ This project benchmarks four machine learning classifiers on predicting heart di
 ## 1. Dataset Overview
 
 ### 1.1 Class Distribution
+
+![Figure 1 - Target Class Distribution](fig1_class_distribution.png)
 
 | Class | Count | Percentage |
 |-------|-------|-----------|
@@ -44,6 +46,8 @@ This project benchmarks four machine learning classifiers on predicting heart di
 
 ### 2.1 BMI Distribution by Heart Disease Status
 
+![Figure 2 - BMI Distribution by Heart Disease Status](fig2_bmi_distribution.png)
+
 **Finding:** Individuals with heart disease show a higher average BMI.
 - Mean BMI (No Heart Disease): 28.3
 - Mean BMI (Heart Disease): 29.6
@@ -51,6 +55,8 @@ This project benchmarks four machine learning classifiers on predicting heart di
 **Implication:** BMI is a meaningful predictor; the ~1.3-point difference is clinically relevant.
 
 ### 2.2 Heart Disease Prevalence by Age Category
+
+![Figure 3 - Heart Disease Prevalence by Age Category](fig3_age_prevalence.png)
 
 **Key Observations:**
 - Prevalence increases sharply with age
@@ -62,7 +68,7 @@ This project benchmarks four machine learning classifiers on predicting heart di
 
 ### 2.3 Risk Factor Analysis
 
-Prevalence rates among each group:
+![Figure 4 - Risk Factor Prevalence by Class](fig4_risk_factors.png)
 
 | Risk Factor | No HD | With HD | Difference |
 |------------|-------|---------|-----------|
@@ -108,16 +114,9 @@ Prevalence rates among each group:
 
 ## 4. Model Performance
 
-### 4.1 Metrics Summary
+### 4.1 KNN K-value Analysis
 
-| Model | Accuracy | Precision | Recall | F1-Score |
-|-------|----------|-----------|--------|----------|
-| **SVM (Linear, C=1.0)** | 0.9058 | 0.7065 | 0.5852 | 0.6412 |
-| **SVM (RBF, C=1.0)** | 0.9015 | 0.6892 | 0.6127 | **0.6156** |
-| **KNN (K=5)** | 0.8987 | 0.6521 | 0.5896 | 0.6195 |
-| **Naive Bayes** | 0.8532 | 0.5634 | 0.7324 | 0.6367 |
-
-### 4.2 KNN K-value Analysis
+![Figure 5 - KNN Performance Across K Values](fig5_knn_k_comparison.png)
 
 | K Value | Accuracy | Recall | F1-Score |
 |---------|----------|--------|----------|
@@ -127,7 +126,20 @@ Prevalence rates among each group:
 
 K=5 provides the best balance between accuracy and recall.
 
-### 4.3 Model Rankings by Metric
+### 4.2 Metrics Summary
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+|-------|----------|-----------|--------|----------|
+| **SVM (Linear, C=1.0)** | 0.9058 | 0.7065 | 0.5852 | 0.6412 |
+| **SVM (RBF, C=1.0)** | 0.9015 | 0.6892 | 0.6127 | **0.6156** |
+| **KNN (K=5)** | 0.8987 | 0.6521 | 0.5896 | 0.6195 |
+| **Naive Bayes** | 0.8532 | 0.5634 | 0.7324 | 0.6367 |
+
+### 4.3 Cross-Model Comparison
+
+![Figure 6 - Comparative Model Performance](fig6_model_comparison.png)
+
+**Model Rankings by Metric**
 
 **By Accuracy:**
 1. SVM (Linear) — 0.9058
@@ -136,9 +148,9 @@ K=5 provides the best balance between accuracy and recall.
 
 **By Recall (Disease Detection):**
 1. Naive Bayes — 0.7324 ⭐
-2. SVM (Linear) — 0.5852
+2. SVM (RBF) — 0.6127
 3. KNN (K=5) — 0.5896
-4. SVM (RBF) — 0.6127
+4. SVM (Linear) — 0.5852
 
 **By F1-Score (Balanced Performance):**
 1. SVM (Linear) — 0.6412 ⭐
@@ -148,7 +160,9 @@ K=5 provides the best balance between accuracy and recall.
 
 ---
 
-## 5. Confusion Matrix Analysis
+## 5. Confusion Matrices
+
+![Figure 7 - Confusion Matrices for All Classifiers](fig7_confusion_matrices.png)
 
 ### Interpretation Template
 For each model:
